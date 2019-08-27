@@ -1,0 +1,32 @@
+{
+  "name": "exchange-rates-react",
+  "version": "1.0.0",
+  "repository": "https://github.com/techeverri/exchange-rates-react.git",
+  "author": "Tomas Echeverri Valencia <tomechval@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "^10.16.0",
+    "yarn": "^1.16.0"
+  },
+  "main": "src/index.js",
+  "dependencies": {
+    "@apollo/react-hooks": "3.0.1",
+    "apollo-boost": "0.4.4",
+    "apollo-link-context": "1.0.18",
+    "graphql": "14.5.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+}
