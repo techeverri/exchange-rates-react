@@ -7,7 +7,6 @@ const getInitialCountries = () => {
 
   const initialCountries = storedCountries.concat([
     { name: "Colombia" },
-    { name: "Sweden" },
     { name: "Netherlands" },
     { name: "Norway" },
   ])
