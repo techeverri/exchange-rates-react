@@ -1,2 +1,8 @@
-export const GRAPHQL_URI =
-  process.env.GRAPHQL_URI || "http://localhost:4000/graphql"
+export const GRAPHQL_BASE_URL =
+  process.env.GRAPHQL_BASE_URL || "http://localhost:4000"
+
+export const GRAPHQL_URI = `${GRAPHQL_BASE_URL}/graphql`
+
+export const TOKEL_LOCAL_STORAGE_KEY = "token"
+
+export const COUNTRIES_LOCAL_STORAGE_KEY = "countries"
