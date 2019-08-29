@@ -25,7 +25,7 @@ const App = () => {
   )
 
   return (
-    <>
+    <div className="App">
       <h1>Exchange Rates</h1>
       {!token ? (
         <LoginButton onClick={setToken} />
@@ -39,7 +39,7 @@ const App = () => {
           <CountrySelector onSelect={handleCountrySelection} />
         </>
       )}
-    </>
+    </div>
   )
 }
 

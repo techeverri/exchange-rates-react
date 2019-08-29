@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/react-hooks"
+import "components/Country.css"
 import { COUNTRY_QUERY } from "graphql/queries"
 import React from "react"
 
@@ -11,49 +12,40 @@ const Country = ({ name, base, amount }) => {
   if (error) return <p>Error :(</p>
 
   const { country } = data
+  const population = new Intl.NumberFormat().format(country.population)
 
   return (
-    <div className="Country">
-      <pre>
-        {JSON.stringify({ name: country.name, population: country.population })}
-      </pre>
-      {country.currencies.map(currency => (
-        <div
-          key={currency.name}
-          style={{
-            display: "flex",
-            maxWidth: 600,
-          }}>
-          <div
-            style={{
-              width: 60,
-            }}>
-            <img
-              src={country.flag}
-              alt={`Flag of ${country.name}`}
-              style={{ width: 50 }}
-            />
+    <div>
+      <p className="Country__header">
+        <span className="Country__header-name">{country.name}</span>{" "}
+        <span className="Country__header-population">
+          Population: {population}
+        </span>
+      </p>
+      {country.currencies.map(currency => {
+        const exchangeRate = currency.rate * amount
+        const rate = currency.rate.toFixed(2)
+
+        return (
+          <div key={currency.name} className="Country__currency">
+            <div className="Country__currency__flag-container">
+              <img
+                className="Country__currency-flag"
+                src={country.flag}
+                alt={`Flag of ${country.name}`}
+              />
+            </div>
+            <div className="Country__currency-description">
+              <div>{currency.code}</div>
+              <div>{currency.name}</div>
+            </div>
+            <div className="Country__currency-exchange-rate">
+              <strong>{`${currency.symbol} ${exchangeRate}`}</strong>
+              <div>{`1 ${currency.code} = ${rate} ${base}`}</div>
+            </div>
           </div>
-          <div
-            style={{
-              flexDirection: "column",
-              flexGrow: 1,
-            }}>
-            <div>{currency.code}</div>
-            <div>{currency.name}</div>
-          </div>
-          <div
-            style={{
-              flexDirection: "column",
-              flexGrow: 1,
-            }}>
-            <strong>{`${currency.symbol} ${currency.rate * amount}`}</strong>
-            <div>{`1 ${currency.code} = ${currency.rate.toFixed(
-              2,
-            )} ${base}`}</div>
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

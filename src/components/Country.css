@@ -1,0 +1,37 @@
+.Country__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.Country__header-name {
+  font-variant-caps: petite-caps;
+  font-weight: bold;
+}
+
+.Country__header-population {
+  font-size: 0.7rem;
+}
+
+.Country__currency {
+  display: flex;
+}
+
+.Country__currency__flag-container {
+  width: 60px;
+}
+
+.Country__currency-flag {
+  width: 50px;
+}
+
+.Country__currency-description {
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.Country__currency-exchange-rate {
+  flex-cirection: column;
+  flex-grow: 1;
+  text-align: right;
+}

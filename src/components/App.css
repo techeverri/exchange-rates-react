@@ -1,3 +1,5 @@
-*:not(pre) {
+.App {
+  max-width: 350px;
+  margin: 0 auto;
   font-family: sans-serif;
 }
