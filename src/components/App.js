@@ -1,20 +1,27 @@
 import Amount from "components/Amount"
+import "components/App.css"
 import CountryList from "components/CountryList"
 import CountrySelector from "components/CountrySelector"
 import LoginButton from "components/LoginButton"
 import LogoutButton from "components/LogoutButton"
-import { COUNTRIES_LOCAL_STORAGE_KEY, TOKEL_LOCAL_STORAGE_KEY } from "config"
-import React, { useState } from "react"
-import "components/App.css"
+import React, { useCallback, useState } from "react"
+import getInitialCountries from "utils/getInitialCountries"
+import getStoredToken from "utils/getStoredToken"
+import setInitialCountries from "utils/setInitialCountries"
 
 const App = () => {
-  const [token, setToken] = useState(
-    localStorage.getItem(TOKEL_LOCAL_STORAGE_KEY),
-  )
+  const [token, setToken] = useState(getStoredToken())
   const [amount, setAmount] = useState(1)
   const [base, setBase] = useState("SEK")
-  const [countries, setCountries] = useState(
-    JSON.parse(localStorage.getItem(COUNTRIES_LOCAL_STORAGE_KEY)) || [],
+  const [countries, setCountries] = useState(getInitialCountries())
+
+  const handleCountrySelection = useCallback(
+    selectedCountry => {
+      const selectedCountries = [...countries, selectedCountry]
+      setCountries(selectedCountries)
+      setInitialCountries(selectedCountries)
+    },
+    [setCountries, countries],
   )
 
   return (
@@ -29,15 +36,7 @@ const App = () => {
           <Amount amount={amount} base={base} onChange={setAmount} />
           <CountryList countries={countries} base={base} amount={amount} />
           <hr />
-          <CountrySelector
-            onSelect={country => {
-              setCountries([...countries, country])
-              localStorage.setItem(
-                COUNTRIES_LOCAL_STORAGE_KEY,
-                JSON.stringify([...countries, country]),
-              )
-            }}
-          />
+          <CountrySelector onSelect={handleCountrySelection} />
         </>
       )}
     </>
