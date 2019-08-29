@@ -13,7 +13,7 @@ const Country = ({ name, base, amount }) => {
   const { country } = data
 
   return (
-    <>
+    <div className="Country">
       <pre>
         {JSON.stringify({ name: country.name, population: country.population })}
       </pre>
@@ -54,7 +54,7 @@ const Country = ({ name, base, amount }) => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   )
 }
 

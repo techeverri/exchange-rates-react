@@ -1,8 +1,9 @@
 import React from "react"
 import Country from "components/Country"
+import "components/CountryList.css"
 
 const CountryList = ({ countries, base, amount }) => (
-  <div>
+  <div className="CountryList">
     {countries.map(country => (
       <Country
         key={`${country.name}-${base}`}

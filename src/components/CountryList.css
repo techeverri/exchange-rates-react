@@ -1,0 +1,3 @@
+.CountryList .Country:nth-child(odd) {
+  background-color: aliceblue;
+}
