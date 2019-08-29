@@ -31,7 +31,7 @@ const Country = ({ name, base, amount }) => {
             <img
               src={country.flag}
               alt={`Flag of ${country.name}`}
-              style={{ height: 30 }}
+              style={{ width: 50 }}
             />
           </div>
           <div
