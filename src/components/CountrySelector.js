@@ -14,6 +14,7 @@ const CountrySelector = ({ onSelect }) => {
       <input
         list="countries"
         name="country"
+        placeholder="Select a country"
         value={selectedCountryName}
         onChange={event => {
           const value = event.target.value
