@@ -14,6 +14,7 @@ const Amount = ({ amount, base, onChange }) => {
       <label htmlFor="amount">Amount </label>
       <input
         name="amount"
+        type="number"
         placeholder={`${amount} ${base}`}
         onChange={handleChange}
       />
