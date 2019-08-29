@@ -5,6 +5,7 @@ import LoginButton from "components/LoginButton"
 import LogoutButton from "components/LogoutButton"
 import { COUNTRIES_LOCAL_STORAGE_KEY, TOKEL_LOCAL_STORAGE_KEY } from "config"
 import React, { useState } from "react"
+import "components/App.css"
 
 const App = () => {
   const [token, setToken] = useState(
