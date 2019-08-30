@@ -8,3 +8,11 @@ hr {
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
+
+button {
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
+}
