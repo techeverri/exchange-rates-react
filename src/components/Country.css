@@ -31,7 +31,7 @@
 }
 
 .Country__currency-exchange-rate {
-  flex-cirection: column;
+  flex-direction: column;
   flex-grow: 1;
   text-align: right;
 }
