@@ -3,3 +3,8 @@
   margin: 0 auto;
   font-family: sans-serif;
 }
+
+hr {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
