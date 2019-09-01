@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "GRAPHQL_BASE_URL": "@graphql_base_url"
+    }
+  }
+}
