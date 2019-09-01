@@ -5,21 +5,21 @@ import CountrySelector from "components/CountrySelector"
 import LoginButton from "components/LoginButton"
 import LogoutButton from "components/LogoutButton"
 import React, { useCallback, useState } from "react"
-import getInitialCountries from "utils/getInitialCountries"
+import retrieveInitialCountries from "utils/retrieveInitialCountries"
 import getStoredToken from "utils/getStoredToken"
-import setInitialCountries from "utils/setInitialCountries"
+import storeInitialCountries from "utils/storeInitialCountries"
 
 const App = () => {
   const [token, setToken] = useState(getStoredToken())
   const [amount, setAmount] = useState(1)
   const [base, setBase] = useState("SEK")
-  const [countries, setCountries] = useState(getInitialCountries())
+  const [countries, setCountries] = useState(retrieveInitialCountries())
 
   const handleCountrySelection = useCallback(
     selectedCountry => {
       const selectedCountries = [...countries, selectedCountry]
       setCountries(selectedCountries)
-      setInitialCountries(selectedCountries)
+      storeInitialCountries(selectedCountries)
     },
     [setCountries, countries],
   )

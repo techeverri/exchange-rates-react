@@ -1,7 +1,7 @@
 import uniqueBy from "lodash.uniqby"
 import { COUNTRIES_LOCAL_STORAGE_KEY } from "config"
 
-const getInitialCountries = () => {
+const retrieveInitialCountries = () => {
   const storedCountries =
     JSON.parse(localStorage.getItem(COUNTRIES_LOCAL_STORAGE_KEY)) || []
 
@@ -14,4 +14,4 @@ const getInitialCountries = () => {
   return uniqueBy(initialCountries, "name")
 }
 
-export default getInitialCountries
+export default retrieveInitialCountries
