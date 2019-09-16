@@ -10,6 +10,7 @@
     "yarn": "^1.16.0"
   },
   "main": "src/index.js",
+  "homepage": ".",
   "dependencies": {
     "@apollo/react-hooks": "3.0.1",
     "apollo-boost": "0.4.4",
