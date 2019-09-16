@@ -1,5 +1,5 @@
 export const GRAPHQL_BASE_URL =
-  process.env.GRAPHQL_BASE_URL || "http://localhost:4000"
+  process.env.REACT_APP_GRAPHQL_BASE_URL || "http://localhost:4000"
 
 export const GRAPHQL_URI = `${GRAPHQL_BASE_URL}/graphql`
 

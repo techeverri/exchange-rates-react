@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "GRAPHQL_BASE_URL": "@exchange_rates_react_graphql_base_url"
+      "REACT_APP_GRAPHQL_BASE_URL": "@exchange_rates_react_graphql_base_url"
     }
   }
 }
