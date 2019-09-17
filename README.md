@@ -6,8 +6,7 @@ https://exchange-rates-react.techeverri.now.sh/
 
 ## Development
 
-Add a valid URL for `REACT_APP_GRAPHQL_BASE_URL` in the `.env` file (It will fallback to `http://localhost:4000` for local development)
-The app will use this URL to fetch the exchange rates data.
+To run the app you need to provide the following environment variables
 
 ```
 REACT_APP_GRAPHQL_BASE_URL=https://dxnbs.sse.codesandbox.io
