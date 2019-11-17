@@ -36,7 +36,7 @@ const App = () => {
           <Amount amount={amount} base={base} onChange={setAmount} />
           <CountryList countries={countries} base={base} amount={amount} />
           <hr />
-          <CountrySelector onSelect={handleCountrySelection} />
+          <CountrySelector selectedCountries={countries} onSelect={handleCountrySelection} />
         </>
       )}
     </div>

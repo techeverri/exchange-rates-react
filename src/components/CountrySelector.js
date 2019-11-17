@@ -1,13 +1,17 @@
 import { useQuery } from "@apollo/react-hooks"
 import { COUNTRIES_QUERY } from "graphql/queries"
 import React, { useState } from "react"
+import uniqueBy from "lodash.uniqby"
+import xorBy from "lodash.xorby"
 
-const CountrySelector = ({ onSelect }) => {
+const CountrySelector = ({ selectedCountries, onSelect }) => {
   const { loading, error, data } = useQuery(COUNTRIES_QUERY)
   const [selectedCountryName, setSelectedCountryName] = useState("")
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
+
+  const availableCountries = xorBy(data.countries, selectedCountries, 'name')
 
   return (
     <form onSubmit={event => event.preventDefault()}>
@@ -22,7 +26,7 @@ const CountrySelector = ({ onSelect }) => {
         }}
       />
       <datalist id="countries">
-        {data.countries.map(country => (
+        {availableCountries.map(country => (
           <option key={country.name} value={country.name} />
         ))}
       </datalist>
@@ -30,7 +34,7 @@ const CountrySelector = ({ onSelect }) => {
       <button
         onClick={() => {
           const selectedCountry =
-            data.countries.find(
+            availableCountries.find(
               country => country.name === selectedCountryName,
             ) || {}
 
