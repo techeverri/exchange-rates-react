@@ -4,6 +4,10 @@
 
 https://exchange-rates-react.techeverri.now.sh/
 
+## Trello
+
+https://trello.com/b/SrNiVbtL/exchange-rates
+
 ## Development
 
 To run the app you need to provide the following environment variables
