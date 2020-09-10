@@ -15,6 +15,7 @@
 
 .Country__currency {
   display: flex;
+  margin-top: .5rem;
 }
 
 .Country__currency__flag-container {
