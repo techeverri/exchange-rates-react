@@ -4,6 +4,7 @@ import CountryList from "components/CountryList"
 import CountrySelector from "components/CountrySelector"
 import LoginButton from "components/LoginButton"
 import LogoutButton from "components/LogoutButton"
+import GitHubCorner from "components/GitHubCorner"
 import React, { useCallback, useState } from "react"
 import retrieveInitialCountries from "utils/retrieveInitialCountries"
 import getStoredToken from "utils/getStoredToken"
@@ -16,7 +17,7 @@ const App = () => {
   const [countries, setCountries] = useState(retrieveInitialCountries())
 
   const handleCountrySelection = useCallback(
-    selectedCountry => {
+    (selectedCountry) => {
       const selectedCountries = [...countries, selectedCountry]
       setCountries(selectedCountries)
       storeInitialCountries(selectedCountries)
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <GitHubCorner />
       <h1>Exchange Rates</h1>
       {!token ? (
         <LoginButton onClick={setToken} />
@@ -36,7 +38,10 @@ const App = () => {
           <Amount amount={amount} base={base} onChange={setAmount} />
           <CountryList countries={countries} base={base} amount={amount} />
           <hr />
-          <CountrySelector selectedCountries={countries} onSelect={handleCountrySelection} />
+          <CountrySelector
+            selectedCountries={countries}
+            onSelect={handleCountrySelection}
+          />
         </>
       )}
     </div>
