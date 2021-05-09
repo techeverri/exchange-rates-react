@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": "14.x",
+    "node": "12.x",
     "yarn": "^1.22.10"
   },
   "main": "src/index.js",
